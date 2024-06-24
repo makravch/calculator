@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="calc">
+      <div class="calc__title">Рассчитайте платеж по лизингу</div>
+
+      <div class="calc__container">
+        <div class="calc__fields">
+          <div class="calc__item calc__item--cost">
+            <div class="calc__item-top">
+              <h4 class="calc__heading">Стоимость автомобиля</h4>
+            </div>
+            <div class="calc__item-content calc__item-content--col">
+              <div class="calc__item-value">
+                <span class="calc__item-price calc__item-price--cost" contenteditable>500 000</span> ₽
+              </div>
+              <input
+                class="calc__item-range styled-slider slider-progress"
+                type="range"
+                name="cost-price"
+                id="cost-price"
+                value="500000"
+                step="1000"
+                min="500000"
+                max="10000000"
+              />
+            </div>
+            <div class="calc__item-bottom">
+              <div class="calc__range-text calc__range-text--min">500 000 ₽</div>
+              <div class="calc__range-text calc__range-text--max">10 000 000 ₽</div>
+            </div>
+          </div>
+
+          <div class="calc__item calc__item--advance-payment">
+            <div class="calc__item-top">
+              <h4 class="calc__heading">Первоначальный взнос</h4>
+            </div>
+            <div class="calc__item-content calc__item-content--col">
+              <div class="calc__item-value">
+                <span class="calc__item-price calc__item-price--advance-payment" contenteditable>0</span> ₽
+              </div>
+              <input
+                class="calc__item-range styled-slider slider-progress"
+                type="range"
+                name="advance-payment-price"
+                id="advance-payment-price"
+                value="0"
+                step="1000"
+                min="0"
+                max="499000"
+              />
+            </div>
+            <div class="calc__item-bottom">
+              <div class="calc__range-text calc__range-text--min">0 ₽</div>
+              <div class="calc__range-text calc__range-text--max">499 000 ₽</div>
+            </div>
+          </div>
+
+          <div class="calc__item calc__item--nperiod">
+            <div class="calc__item-top">
+              <h4 class="calc__heading">Срок договора</h4>
+            </div>
+            <div class="calc__item-content calc__item-content--col">
+              <div class="calc__item-value">
+                <span class="calc__item-price calc__item-price--nperiod" contenteditable>12</span>
+                месяцев
+              </div>
+              <input
+                class="calc__item-range styled-slider slider-progress"
+                type="range"
+                name="nperiod-price"
+                id="nperiod-price"
+                value="12"
+                step="1"
+                min="12"
+                max="60"
+              />
+            </div>
+            <div class="calc__item-bottom">
+              <div class="calc__range-text calc__range-text--min">12 месяцев</div>
+              <div class="calc__range-text calc__range-text--max">60 месяцев</div>
+            </div>
+          </div>
+
+          <div class="calc__item calc__item--fv">
+            <div class="calc__item-top">
+              <h4 class="calc__heading">Размер выкупного платежа</h4>
+            </div>
+            <div class="calc__item-content calc__item-content--col">
+              <div class="calc__item-value">
+                <span class="calc__item-price calc__item-price--fv" contenteditable>1 000</span> ₽
+              </div>
+              <input
+                class="calc__item-range styled-slider slider-progress"
+                type="range"
+                name="fv-price"
+                id="fv-price"
+                value="1000"
+                step="1000"
+                min="1000"
+                max="500000"
+              />
+            </div>
+            <div class="calc__item-bottom">
+              <div class="calc__range-text calc__range-text--min">1 000 ₽</div>
+              <div class="calc__range-text calc__range-text--max">500 000 ₽</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cacl__result">
+          <div class="calc__result-row calc__result-row--monthly-payment">
+            <div class="calc__result-row-label">Ежемесячный платеж</div>
+            <div class="calc__result-row-value">
+              <span
+                class="calc__result-row-price calc__result-row-price--monthly-payment"
+              ></span>
+              ₽
+            </div>
+          </div>
+
+          <hr class="calc__result-divider" />
+
+          <div class="calc__result-group">
+            <div class="calc__result-row calc__result-row--nds">
+              <div class="calc__result-row-label">НДС к вычету</div>
+              <div class="calc__result-row-value">
+                <span
+                  class="calc__result-row-price calc__result-row-price--nds"
+                ></span>
+                ₽
+              </div>
+            </div>
+  
+            <div class="calc__result-row calc__result-row--income-tax-savings">
+              <div class="calc__result-row-label">
+                Экономия по налогу на прибыль
+              </div>
+              <div class="calc__result-row-value">
+                <span
+                  class="calc__result-row-price calc__result-row-price--income-tax-savings"
+                ></span>
+                ₽
+              </div>
+            </div>
+  
+            <div class="calc__result-row calc__result-row--total-savings">
+              <div class="calc__result-row-label">Итого экономия</div>
+              <div class="calc__result-row-value">
+                <span
+                  class="calc__result-row-price calc__result-row-price--total-savings"
+                ></span>
+                ₽
+              </div>
+            </div>
+          </div>
+
+          <div class="calc__result-links">
+            <a
+              href="#request-form"
+              class="calc__result-link calc__result-link--black"
+              >Оставить заявку</a
+            >
+          </div>
+
+          <p class="result-disclaimer">
+            Расчет носит исключительно информационный характер и не является
+            офертой в соответствии со ст. 435, 437 Гражданского кодекса
+            Российской Федерации. Окончательные условия договора лизинга будут
+            определяться отдельно при его заключении.
+          </p>
+        </div>
+      </div>
+
+      <div class="financing calc__financing">
+        <div class="financing__container">
+          <div class="financing__top">
+            Сумма договора с учетом аванса и выкупа
+            <span class="financing__payment"></span> ₽
+          </div>
+          <div class="financing__bottom">
+            <div class="financing__item financing__item--yellow">
+              <div class="financing__label financing__label--black">
+                Сумма финансирования
+              </div>
+              <div
+                class="financing__value financing__value--black financing__total-financing"
+              >
+                <span class="financing__total-financing-value"></span> ₽
+              </div>
+            </div>
+            <div class="financing__item financing__item--white">
+              <div class="financing__label financing__label--black">
+                Переплата
+              </div>
+              <div
+                class="financing__value financing__value--black financing__overpayment"
+              >
+                <span class="financing__overpayment-value"></span> ₽
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
